@@ -1,0 +1,21 @@
+{
+  "name": "newpaltz-springinclass2019-webserver",
+  "version": "1.0.0",
+  "description": "newpaltz-springinclass2019-webserver",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bhargavbunny/Newpaltz-Springinclass2019-webserver.git"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "body-parser": "^1.18.3"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  }
+}
