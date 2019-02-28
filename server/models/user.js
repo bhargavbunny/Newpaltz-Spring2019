@@ -11,7 +11,7 @@ const model = {
     },
     add(input, cb){
         conn.query( "INSERT INTO springinclass_2019 (Person_Id,F_name,L_name) VALUES (?)",
-                    [[input.Person_Id, input.F_name, input.L_name, new Date()]],
+                    [[input.Person_Id, input.F_name, input.L_name]],
                     (err, data) => {
                         cb(err, data);
                     }
