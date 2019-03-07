@@ -10,10 +10,13 @@ app.get("/", (req, res) => {
         res.send(data);
     });
 
+
+
+
 });
 app.post("/", (req, res) => {
-
-    user.add({ Person_Id : 01 , F_name: "bhargav", L_name: "reddy konapalli" }, (err, data) => {
+    console.log(req, res)
+    user.add({ Person_Id: "03",F_name: "bhargavbunny", L_name: "konapalli" }, (err, data) => {
         if(err) throw err;
         res.send(data);
     });
