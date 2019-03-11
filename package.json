@@ -4,7 +4,9 @@
   "description": "newpaltz-springinclass2019-webserver",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
     "start": "nodemon server/index.js --watch server"
   },
   "repository": {
