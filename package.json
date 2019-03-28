@@ -1,8 +1,7 @@
 {
-  "name": "newpaltz-springinclass2019-webserver",
-  "version": "1.0.0",
-  "description": "newpaltz-springinclass2019-webserver",
-  "main": "index.js",
+  "name": "",
+  "version": "1.1.0",
+  "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -10,18 +9,17 @@
     "start": "nodemon server/index.js --watch server"
   },
   "repository": {
-    "type": "git",
-    "url": "git+https://github.com/bhargavbunny/Newpaltz-Springinclass2019-webserver.git"
+    "type": "git"
   },
   "license": "ISC",
   "dependencies": {
-    "vue": "^2.6.6",
-    "vue-router": "^3.0.1",
-    "body-parser": "^1.18.3",
+    "bcrypt": "^3.0.4",
+    "bootstrap": "^4.3.1",
     "dotenv": "^6.2.0",
     "express": "^4.16.4",
     "mysql": "^2.16.0",
-    "bootstrap": "^4.3.1"
+    "vue": "^2.6.6",
+    "vue-router": "^3.0.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.4.0",
