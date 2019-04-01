@@ -11,9 +11,6 @@ const model = {
         return await conn.query("SELECT * FROM 2019Spring_Persons WHERE Id=?", id);    
     },
     async add(input){
-        if(input.Password.length < 8){
-            throw Error('A longer Password is Required');
-        }
         const hashedPassword = await bcrypt.hash(input.Password, SALT_ROUNDS)
         const data = await conn.query(
             "INSERT INTO 2019Spring_Persons (FirstName,LastName,Birthday,Password,created_at) VALUES (?)",
