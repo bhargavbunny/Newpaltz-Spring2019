@@ -13,8 +13,8 @@ const model = {
     async add(input){
         const hashedPassword = await bcrypt.hash(input.Password, SALT_ROUNDS)
         const data = await conn.query(
-            "INSERT INTO 2019Spring_Persons (FirstName,LastName,Birthday,Password,created_at) VALUES (?)",
-            [[input.FirstName, input.LastName, input.Birthday, hashedPassword, new Date()]] 
+            "INSERT INTO 2019Spring_Persons (FirstName,LastName,Birthday,Password,createdAt,updatedAt) VALUES (?)",
+            [[input.FirstName, input.LastName, input.Birthday, hashedPassword, new Date(),new Date()]] 
         );
         return await model.get(data.insertId);
     },
