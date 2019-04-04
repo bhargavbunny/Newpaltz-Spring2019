@@ -8,13 +8,23 @@ const model = {
         return await conn.query("SELECT * FROM 2019Spring_Persons");   
     },
     async get(id){
-        return await conn.query("SELECT * FROM 2019Spring_Persons WHERE Id=?", id);    
+        const data = await conn.query("SELECT * FROM 2019Spring_Persons WHERE Id=?", id);
+        if(!data){
+            throw Error("User not found");
+        }
+        return data[0];
     },
     async add(input){
+        if(!input.Password){
+            throw Error('Password is Required');
+        }
+        if(input.Password.length < 8){
+            throw Error('A longer Password is Required');
+        }
         const hashedPassword = await bcrypt.hash(input.Password, SALT_ROUNDS)
         const data = await conn.query(
-            "INSERT INTO 2019Spring_Persons (FirstName,LastName,Birthday,Password,createdAt,updatedAt) VALUES (?)",
-            [[input.FirstName, input.LastName, input.Birthday, hashedPassword, new Date(),new Date()]] 
+            "INSERT INTO 2019Spring_Persons (FirstName,LastName,Birthday,Password,created_at) VALUES (?)",
+            [[input.FirstName, input.LastName, input.Birthday, hashedPassword, new Date()]] 
         );
         return await model.get(data.insertId);
     },

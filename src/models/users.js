@@ -5,6 +5,8 @@ export async function GetFriends(){
     return x;
 }
 
+export const GetFriends2 = () => api("users");
+
 export async function Register(data){
     const x = await api("users", data)
     return x;
