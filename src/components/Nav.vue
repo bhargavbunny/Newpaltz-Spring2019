@@ -23,7 +23,7 @@
             </ul>
             <form class="form-inline mt-2 mt-md-0" v-if="!Globals.user">
                 <a href="#" class="nav-link" @click.prevent="login">Login</a>
-                <a href="#" class="nav-link">Sign Up</a>
+                <router-link class="nav-link" to="/Register" active-class="active">Register</router-link>
             </form>
             <span class="navbar-text" v-if="Globals.user">Welcome {{Globals.user.name}}</span>
         </div>
