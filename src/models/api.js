@@ -1,3 +1,5 @@
+//import { async } from "q";
+
 const API_ROOT = process.env.API_ROOT || "http://localhost:3000/";
 
 export const Globals = {
@@ -14,8 +16,9 @@ export function login(){
 
 export async function api(url, data){
     let response = null;
+    let headers = { "Authorization": `Bearer ${Globals.token}`} // somtimes token null, or return... "tic" means you can use the dollar ign and put code in there
     if(!data){
-        response = await fetch(API_ROOT + url);
+        response = await fetch(API_ROOT + url, { headers });
     }else{
         response = await fetch(API_ROOT + url, {
             method: "POST", // *GET, POST, PUT, DELETE, etc.
@@ -30,4 +33,4 @@ export async function api(url, data){
         throw await response.json();
     }
     return await response.json();
-}
+} 

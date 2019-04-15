@@ -21,11 +21,11 @@
                     <router-link class="nav-link disabled" to="#"  active-class="active">Disabled</router-link>
                 </li>
             </ul>
-            <form class="form-inline mt-2 mt-md-0" v-if="!Globals.user">
+              <form class="form-inline mt-2 mt-md-0" v-if="!Globals.user">
                 <a href="#" class="nav-link" @click.prevent="login">Login</a>
                 <router-link class="nav-link" to="/Register" active-class="active">Register</router-link>
             </form>
-            <span class="navbar-text" v-if="Globals.user">Welcome {{Globals.user.name}}</span>
+            <span class="navbar-text" v-if="Globals.user">Welcome {{Globals.user.FirstName}} {{Globals.user.LastName}}</span>
         </div>
     </nav>
 </template>
@@ -35,6 +35,7 @@ import { login, Globals } from "@/models/api";
 
 export default {
     data: ()=>({
+        user: null,
         Globals: Globals
     }),
     methods: {

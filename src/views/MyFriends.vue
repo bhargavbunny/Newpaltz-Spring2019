@@ -1,7 +1,7 @@
 <template>
 <div>
 
-    <h1 v-if="Globals.user">{{Globals.user.name}} Friends Page</h1>
+        <h1 v-if="Globals.user">{{Globals.user.name}} Friends Page</h1>
     <ul>
         <li v-for="friend in friends" :key="friend.id">
             {{friend.FirstName}} {{friend.LastName}}
@@ -25,7 +25,7 @@ export default {
     },
     async mounted(){
         this.friends = await GetFriends();
-    }, 
+    },
 }
 </script>
 
