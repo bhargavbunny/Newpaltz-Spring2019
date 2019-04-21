@@ -1,5 +1,3 @@
-//import { async } from "q";
-
 const API_ROOT = process.env.API_ROOT || "http://localhost:3000/";
 
 export const Globals = {
@@ -16,7 +14,7 @@ export function login(){
 
 export async function api(url, data){
     let response = null;
-    let headers = { "Authorization": `Bearer ${Globals.token}`} // somtimes token null, or return... "tic" means you can use the dollar ign and put code in there
+    let headers = { "Authorization": `Bearer ${Globals.token}` }
     if(!data){
         response = await fetch(API_ROOT + url, { headers });
     }else{
@@ -24,6 +22,7 @@ export async function api(url, data){
             method: "POST", // *GET, POST, PUT, DELETE, etc.
             cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
             headers: {
+                ...headers,
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(data), // body data type must match "Content-Type" header
@@ -33,4 +32,4 @@ export async function api(url, data){
         throw await response.json();
     }
     return await response.json();
-} 
+}

@@ -14,10 +14,12 @@
 export default {
     data: ()=> ({
       name: "bunny",
-      age: 25
+      age: 42
     })
 }
 </script>
 
 <style type="scss">
+
 </style>
+

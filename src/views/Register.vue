@@ -42,13 +42,19 @@
                     class="form-control" name="Birthday" id="Birthday" aria-describedby="helpBirthday" placeholder="Your Birthday">
                   <small id="helpBirthday" class="form-text text-muted">Please include the year</small>
                 </div>
+                <div class="form-group">
+                  <label for="email">email</label>
+                  <input type="email" v-model="data.email"
+                    class="form-control" name="email" id="email" aria-describedby="helpemail" placeholder="Your email">
+                  <small id="helpemail" class="form-text text-muted">Please include your email</small>
+                </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
       </div>
     </div>
     </div>
-     <div class="col-lg-6">
+    <div class="col-lg-6">
       <div class="card border-success" v-if="newUser">
         <div class="card-body">
           <h4 class="card-title">Congrats! You've Registered</h4>
@@ -58,31 +64,30 @@
         </div>
       </div>
     </div>
-    </div>
+</div>
 </template>
 
 <script>
 import { Globals } from "@/models/api";
 import { Register } from "@/models/users";
 import toastr from 'toastr';
-import 'toastr/build/toastr.css';
 
 export default {
     data: ()=> ({
-      data: {},
+        data: {},
         newUser: null
     }),
     methods: {
-      async submit(){
+        async submit(){
             try {
               const m = await Register(this.data);
               this.newUser = m;
               toastr.success("You've registered successfully!")
             } catch (error) {
               Globals.errors.push(error);
-              toastr.error(error.msg);
+              toastr.error(error.message);
             }
-      }
+        }
     }
 }
 </script>
