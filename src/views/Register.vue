@@ -42,12 +42,6 @@
                     class="form-control" name="Birthday" id="Birthday" aria-describedby="helpBirthday" placeholder="Your Birthday">
                   <small id="helpBirthday" class="form-text text-muted">Please include the year</small>
                 </div>
-                <div class="form-group">
-                  <label for="email">email</label>
-                  <input type="email" v-model="data.email"
-                    class="form-control" name="email" id="email" aria-describedby="helpemail" placeholder="Your email">
-                  <small id="helpemail" class="form-text text-muted">Please include your email</small>
-                </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
